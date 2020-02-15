@@ -62,3 +62,6 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem "twitter-bootstrap-rails", "~> 3.2"
 
 gem "devise", "~> 4.7"
+gem "devise-i18n", "~> 1.9"
+
+gem "rails-i18n"

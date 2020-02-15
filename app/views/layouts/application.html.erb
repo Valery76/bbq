@@ -20,7 +20,7 @@
 
     <div class="navbar navbar-default navbar-static-top">
       <div class="container">
-        <%= link_to "BBQ!", root_path, class: 'navbar-brand' %>
+        <%= link_to t('app.name'), root_path, class: 'navbar-brand' %>
 
         <div class="navbar-collapse collapse navbar-responsive-collapse">
           <ul class="nav navbar-nav">
@@ -47,7 +47,7 @@
       </div><!--/row-->
 
       <footer>
-        <p>&copy; Company 2020</p>
+        <p>&copy; <%= t('app.company') %> 2020</p>
       </footer>
 
     </div> <!-- /container -->

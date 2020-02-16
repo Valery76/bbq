@@ -35,6 +35,29 @@ ru:
     many: '%{count} ошибок'
     other: 'ошибки'
 
+  views:
+    back: 'Вернуться'
+    sign_in: 'Войти'
+    events:
+      are_you_sure: 'Точно удалить событие?'
+      change: 'Изменить'
+      create_event: 'Создать событие'
+      delete: 'Удалить'
+      event_editing: 'Редактирование события'
+      events: 'События'
+      new_event: 'Новое событие'
+    sign_out: 'Выйти'
+    profile: 'Профиль'
+    save: 'Сохранить'
+    sign_up: 'Зарегистрироваться'
+    users:
+      arranged: 'Организовал:'
+      edit_profile: 'Редактировать профиль'
+      profile_editing: 'Редактирование профиля'
+      change_password: 'Сменить пароль'
+      still_without_events: 'Пользователь пока не организовал ни одного события'
+    your_form_has: 'В вашей форме'
+
   # Перевод названия приложения и компании-разработчика
   app:
     name: 'Шашлыки'

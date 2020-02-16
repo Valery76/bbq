@@ -10,14 +10,20 @@
             <h1><%= @event.title %></h1>
             <h3><%= l(@event.datetime, format: :short) %></h3>
             <h3><small><%= link_to @event.address,
-                "https://yandex.ru/maps/?text=#{@event.address}" %></small></h3>
+              "https://yandex.ru/maps/?text=#{@event.address}" %></small></h3>
             <p><%= @event.description %></p>
           </div>
 
           <% if current_user_can_edit?(@event) %>
-            <div class="buffer-top">
-              <%= link_to 'Изменить', edit_event_path(@event),
-                class: 'btn btn-primary' %>
+            <div class="flex-wrapper">
+              <div class="buffer-top flex-left">
+                <%= link_to t('views.events.change'), edit_event_path(@event),
+                  class: 'btn btn-primary' %>
+              </div>
+              <div class="buffer-top">
+                <%= link_to t('views.events.delete'), event_path(@event), method: :delete,
+                  data: {confirm: t('views.events.are_you_sure')}, class: 'btn btn-danger' %>
+              </div>
             </div>
           <% end %>
         </div>

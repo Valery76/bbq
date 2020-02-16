@@ -1,4 +1,4 @@
-<h1>Редактирование профиля</h1>
+<h1><%= t('views.users.profile_editing') %></h1>
 
 <div class="row">
   <div class="col-md-6 buffer-top">
@@ -6,7 +6,7 @@
     <p class="buffer-top">
         <%# Ссылка на смену пароля текущего залогиненного юзера (этот путь %>
         <%# генерит девайз) %>
-        <%= link_to 'Сменить пароль', edit_user_registration_path %>
+        <%= link_to t('views.users.change_password'), edit_user_registration_path %>
     </p>
   </div>
 </div>

@@ -25,5 +25,10 @@
   <div class="actions">
     <%= f.submit t('views.save'), class: 'btn btn-primary' %>
     или <%= link_to t('views.back'), :back %>
+    <% if @event.persisted? %>
+      или
+      <%= link_to t('views.events.delete'), event_path(@event), method: :delete,
+        data: {confirm: t('views.events.are_you_sure')}, class: 'btn btn-danger' %>
+    <% end %>
   </div>
 <% end %>

@@ -19,10 +19,6 @@
               <%= link_to t('views.events.change'), edit_event_path(@event),
                 class: 'btn btn-primary' %>
             </div>
-            <div class="buffer-both delete-event-btn">
-              <%= link_to t('views.events.delete'), event_path(@event), method: :delete,
-                data: {confirm: t('views.events.are_you_sure')}, class: 'btn btn-danger' %>
-            </div>
           <% end %>
         </div>
       </div>

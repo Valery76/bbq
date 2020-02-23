@@ -2,16 +2,17 @@ class Subscription < ApplicationRecord
   belongs_to :event
   belongs_to :user, optional: true
 
-  validates :user_name, presence: true, unless: -> { user.present? }
-  validates :user_email, presence: true,
-    format: /\A[a-zA-Z0-9\-_.]+@[a-zA-Z0-9\-_.]+\z/, unless: -> { user.present? }
+  with_options unless: -> { user.present? } do |subscr|
+    subscr.validates :user_name, presence: true
+    subscr.validates :user_email, presence: true,
+      format: /\A[a-zA-Z0-9\-_.]+@[a-zA-Z0-9\-_.]+\z/
+    subscr.validates :user_email,
+      uniqueness: { scope: :event_id,
+        message: I18n.t('models.subscription.already_subscribed')}
+  end
 
-  # для данного event_id один юзер может подписаться только один раз (если юзер задан)
-  validates :user, uniqueness: {scope: :event_id}, if: -> { user.present? }
-
-  # для данного event_id один email может использоваться только один раз
-  # (если нет юзера, анонимная подписка)
-  validates :user_email, uniqueness: {scope: :event_id}, unless: -> { user.present? }
+  validates :user, uniqueness: { scope: :event_id }, if: -> { user.present? }
+  validate :user_cannot_subscribe_their_own_event, if: -> { user.present? }
 
   # переопределяем метод, если есть юзер, выдаем его имя,
   # если нет -- дергаем исходный переопределенный метод
@@ -30,6 +31,14 @@ class Subscription < ApplicationRecord
       user.email
     else
       super
+    end
+  end
+
+  private
+
+  def user_cannot_subscribe_their_own_event
+    if user == event.user
+      errors.add(:user, I18n.t('models.subscription.user_cannot_subscribe'))
     end
   end
 end

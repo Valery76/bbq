@@ -3,21 +3,29 @@ ru:
   activerecord:
     # Перевод названия моделей
     models:
-      user: 'Пользователь'
+      comment: 'Комментарий'
       event: 'Событие'
+      subscription: 'Подписка'
+      user: 'Пользователь'
 
     # Перевод названий аттрибутов моделей
     attributes:
-      user:
-        email: 'Email'
-        name: 'Имя'
-        password: 'Пароль'
-        password_confirmation: 'Подтверждение пароля'
+      comment:
+        body: 'Текст комментария'
+        user_name: 'Ваше имя'
       event:
         title: 'Название'
         address: 'Место проведения'
         datetime: 'Дата и время'
         description: 'Описание'
+      subscription:
+        user_email: 'email'
+        user_name: 'Имя'
+      user:
+        email: 'Email'
+        name: 'Имя'
+        password: 'Пароль'
+        password_confirmation: 'Подтверждение пароля'
 
   # Перевод названия приложения и компании-разработчика
   app:
@@ -47,6 +55,11 @@ ru:
     few: '%{count} ошибки'
     many: '%{count} ошибок'
     other: 'ошибки'
+
+  models:
+    subscription:
+      already_subscribed: 'уже подписан на это событие'
+      user_cannot_subscribe: 'не может подписываться на свои события'
 
   views:
     back: 'Вернуться'

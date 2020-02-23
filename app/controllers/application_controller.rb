@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
 
   # Хелпер метод, доступный во вьюхах
-  helper_method :current_user_can_edit?
+  helper_method :current_user_can_edit?, :user_can_subscribe?
 
   # Настройка для девайза — разрешаем обновлять профиль, но обрезаем
   # параметры, связанные со сменой пароля.
@@ -21,5 +21,11 @@ class ApplicationController < ActionController::Base
       obj.user == current_user ||
       obj.try(:event).try(:user) == current_user
     )
+  end
+
+  def user_can_subscribe?(event)
+    !user_signed_in? ||
+    (current_user != event.user &&
+      event.subscriptions.where(user: current_user).blank?)
   end
 end

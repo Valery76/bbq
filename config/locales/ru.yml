@@ -1,6 +1,15 @@
 ru:
   # Перевод моделей
   activerecord:
+    errors:
+      models:
+        subscription:
+          attributes:
+            user_email:
+              taken: 'уже подписан на это событие'
+            user:
+              taken: 'уже подписан на это событие'
+
     # Перевод названия моделей
     models:
       comment: 'Комментарий'
@@ -19,8 +28,9 @@ ru:
         datetime: 'Дата и время'
         description: 'Описание'
       subscription:
-        user_email: 'email'
+        user_email: 'Email'
         user_name: 'Имя'
+        user: 'Пользователь'
       user:
         email: 'Email'
         name: 'Имя'
@@ -49,17 +59,6 @@ ru:
       destroyed: 'Участник отписан'
       error: 'Подписка/отписка не сработала'
 
-  error:
-    zero: 'нет ошибок'
-    one: '%{count} ошибка'
-    few: '%{count} ошибки'
-    many: '%{count} ошибок'
-    other: 'ошибки'
-
-  models:
-    subscription:
-      already_subscribed: 'уже подписан на это событие'
-      user_cannot_subscribe: 'не может подписываться на свои события'
 
   views:
     back: 'Вернуться'
@@ -92,3 +91,10 @@ ru:
     subscription:
       destroy_confirm: 'Вы уверены, что хотите удалить эту подписку?'
 
+  words:
+    error:
+      zero: 'нет ошибок'
+      one: '%{count} ошибка'
+      few: '%{count} ошибки'
+      many: '%{count} ошибок'
+      other: 'ошибки'

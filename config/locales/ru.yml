@@ -6,6 +6,7 @@ ru:
         subscription:
           attributes:
             user_email:
+              exclusion: 'уже занят зарегистрированным пользователем'
               taken: 'уже подписан на это событие'
             user:
               taken: 'уже подписан на это событие'

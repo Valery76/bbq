@@ -6,6 +6,7 @@ class Subscription < ApplicationRecord
     validates :user_name, presence: true
     validates :user_email, presence: true, format: URI::MailTo::EMAIL_REGEXP
     validates :user_email, uniqueness: { scope: :event_id }
+    validates :user_email, exclusion: { in: User.all.map(&:email) }
   end
 
   with_options if: -> { user.present? } do

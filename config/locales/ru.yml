@@ -15,6 +15,7 @@ ru:
     models:
       comment: 'Комментарий'
       event: 'Событие'
+      photo: 'Фотография'
       subscription: 'Подписка'
       user: 'Пользователь'
 
@@ -28,11 +29,14 @@ ru:
         address: 'Место проведения'
         datetime: 'Дата и время'
         description: 'Описание'
+      photo:
+        photo: 'Фотография'
       subscription:
         user_email: 'Email'
         user_name: 'Имя'
         user: 'Пользователь'
       user:
+        avatar: 'Аватарка'
         email: 'Email'
         name: 'Имя'
         password: 'Пароль'
@@ -53,12 +57,16 @@ ru:
       created: 'Вы создали новое мероприятие'
       updated: 'Вы обновили мероприятие'
       destroyed: 'Вы удалили мероприятие :('
-    users:
-      updated: 'Вы обновили свой профиль'
+    photos:
+      error: 'Что-то не так с фоткой'
+      created: 'Вы добавили фотографию к событию'
+      destroyed: 'Вы удалили фотку'
     subscriptions:
       created: 'Вы подписаны на это событие'
       destroyed: 'Участник отписан'
       error: 'Подписка/отписка не сработала'
+    users:
+      updated: 'Вы обновили свой профиль'
 
   views:
     back: 'Вернуться'

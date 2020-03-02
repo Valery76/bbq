@@ -1,0 +1,13 @@
+<%# Форма для добавления новой фотографии с одним полем photo %>
+<%= form_with(model: [@event, photo], local: true, multipart: true) do |form| %>
+  <%= render partial: 'partials/form_errors', locals: {model: photo} %>
+
+  <div class="form-group">
+    <%= form.label :photo %>
+    <%= form.file_field :photo %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit 'Загрузить', class: 'btn btn-primary' %>
+  </div>
+<% end %>

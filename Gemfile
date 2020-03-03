@@ -10,6 +10,7 @@ gem 'nokogiri', '>= 1.10.8'
 
 gem 'carrierwave'
 gem 'carrierwave-i18n'
+gem 'fog-aws'
 
 gem 'puma', '~> 3.12'
 

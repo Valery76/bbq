@@ -1,4 +1,4 @@
 class ApplicationMailer < ActionMailer::Base
-  default from: 'bbq@test-bbq-by-dragon.herokuapp.com'
+  default from: ENV['ACTION_MAILER_DEFAULT_SOURCE_EMAIL_ADDRESS']
   layout 'mailer'
 end

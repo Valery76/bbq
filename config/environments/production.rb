@@ -93,7 +93,10 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
 
   # Базовый урл сайта, для генерации правильных ссылок в письмах
-  config.action_mailer.default_url_options = {host: ENV['ACTION_MAILER_DOMAIN']}
+  config.action_mailer.default_url_options = {
+    host: ENV['ACTION_MAILER_DOMAIN'],
+    protocol: 'https'
+  }
 
   # Вываливать ли посетителю сайта ошибки при отправке писем
   config.action_mailer.raise_delivery_errors = false

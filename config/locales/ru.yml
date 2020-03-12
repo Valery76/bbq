@@ -10,6 +10,10 @@ ru:
               taken: 'уже подписан на это событие'
             user:
               invalid: 'уже подписан на это событие'
+        photo:
+          attributes:
+            photo:
+              blank: 'не выбрана'
 
     # Перевод названия моделей
     models:

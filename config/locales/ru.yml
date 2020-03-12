@@ -101,6 +101,7 @@ ru:
       author: 'Автор'
       event: 'Событие'
       datetime: 'Состоится'
+      datetime_over: 'Состоялось'
       owner: 'Организатор'
     subscription:
       title: 'Новая подписка'
@@ -109,6 +110,7 @@ ru:
       author: 'Автор'
       event: 'Событие'
       datetime: 'Состоится'
+      datetime_over: 'Состоялось'
       owner: 'Организатор'
 
   subscriptions:

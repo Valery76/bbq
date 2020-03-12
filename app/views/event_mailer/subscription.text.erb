@@ -2,10 +2,11 @@
 ----
 
 Имя: <%= @name %>
-Email: <%=  @email %>
+Email: <%= @email %>
 
 ----------------------
 
 Событие: <%= @event.title %>
-Состоится: <%= l @event.datetime %>
+<%= render partial: 'datetime', locals: { event: @event } %>:
+  <%= l(@event.datetime, format: :short) %>
 Организатор: <%= @event.user.name %>

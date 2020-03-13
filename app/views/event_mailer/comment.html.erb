@@ -1,6 +1,13 @@
 <h1><%= t('.title') %></h1>
 <p><%= @comment.body %></p>
-<p><%= t('.author') %>: <strong><%= @comment.user_name %></strong></p>
+<p>
+  <%= t('.author') %>:
+  <% if @comment.user.present? %>
+    <%= link_to(@comment.user.name, user_url(@comment.user)) %>
+  <% else %>
+    <%= @comment.user_name %>
+  <% end %>
+</p>
 
 <hr/>
 

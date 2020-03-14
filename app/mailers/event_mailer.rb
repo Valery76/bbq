@@ -20,8 +20,9 @@ class EventMailer < ApplicationMailer
     @event = event
     @photo = photo
 
-    @filename = photo.photo.file.filename
-    content = photo.photo.file.to_file.read
+    f = photo.photo.file
+    @filename = f.filename
+    content = Rails.env.production? ? f.read : f.to_file.read
     attachments.inline[@filename] = content
 
     mail to: email, subject: "Новая фотография @ #{event.title}"

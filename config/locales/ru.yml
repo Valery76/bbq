@@ -14,6 +14,8 @@ ru:
           attributes:
             photo:
               blank: 'не выбрана'
+            user:
+              required: 'должен быть залогинен'
 
     # Перевод названия моделей
     models:
@@ -34,7 +36,9 @@ ru:
         datetime: 'Дата и время'
         description: 'Описание'
       photo:
+        event: 'Событие'
         photo: 'Фотография'
+        user: 'Пользователь'
       subscription:
         user_email: 'Email'
         user_name: 'Имя'
@@ -103,6 +107,15 @@ ru:
     comment:
       title: 'Новый комментарий'
       author: 'Автор'
+      event: 'Событие'
+      datetime: 'Состоится'
+      datetime_over: 'Состоялось'
+      owner: 'Организатор'
+    photo:
+      title: 'Новая фотография'
+      name: 'Имя'
+      email: 'Email'
+      author: 'Добавил'
       event: 'Событие'
       datetime: 'Состоится'
       datetime_over: 'Состоялось'

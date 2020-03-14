@@ -1,0 +1,11 @@
+Новая фотография
+----
+
+Разместил: <%= @photo.user.name %>
+
+----------------------
+
+Событие: <%= @event.title %>
+<%= render partial: 'datetime', locals: { event: @event } %>:
+  <%= l(@event.datetime, format: :short) %>
+Организатор: <%= @event.user.name %>

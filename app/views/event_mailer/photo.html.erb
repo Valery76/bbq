@@ -1,0 +1,17 @@
+<h1><%= t('.title') %></h1>
+
+<div><%= image_tag(attachments[@filename].url, alt: "[#{t('.title')}]") %></div>
+
+<p><%= t('.author') %>: <%= link_to(@photo.user.name, user_url(@photo.user)) %></p>
+
+<hr/>
+<%= t('.event') %>
+
+<h3><%= link_to(@event.title, event_url(@event)) %></h3>
+
+<%= render partial: 'datetime', locals: { event: @event } %>
+<h4><%= l(@event.datetime, format: :short) %></h4>
+
+<%= t('.owner') %>
+<h4><%= link_to(@event.user.name, user_url(@event.user)) %></h4>
+<hr/>

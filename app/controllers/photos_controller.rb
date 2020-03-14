@@ -3,15 +3,14 @@ class PhotosController < ApplicationController
 
   before_action :set_photo, only: [:destroy]
 
-  # Действие для создания новой фотографии
-  # Обратите внимание, что фотку может сейчас добавить даже неавторизованный пользовать
-  # Смотрите домашки!
   def create
     @new_photo = @event.photos.build(photo_params)
 
     @new_photo.user = current_user
 
     if @new_photo.save
+      notify_subscribers(@event, @new_photo)
+
       redirect_to @event, notice: I18n.t('controllers.photos.created')
     else
       render 'events/show', alert: I18n.t('controllers.photos.error')

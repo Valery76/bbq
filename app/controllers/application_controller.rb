@@ -22,4 +22,22 @@ class ApplicationController < ActionController::Base
       obj.try(:event).try(:user) == current_user
     )
   end
+
+  protected
+
+  def notify_subscribers(event, property)
+    all_emails =
+      event.subscriptions.map(&:user_email) + [event.user.email] - [property.user&.email]
+
+    case property.class.name
+    when 'Comment'
+      all_emails.each do |mail|
+        EventMailer.comment(event, property, mail).deliver_now
+      end
+    when 'Photo'
+      all_emails.each do |mail|
+        EventMailer.photo(event, property, mail).deliver_now
+      end
+    end
+  end
 end

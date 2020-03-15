@@ -27,7 +27,9 @@ class ApplicationController < ActionController::Base
 
   def notify_subscribers(event, property)
     all_emails =
-      event.subscriptions.map(&:user_email) + [event.user.email] - [property.user&.email]
+      event.subscriptions.pluck(:user_email).compact +
+      event.subscribers.pluck(:email) +
+      [event.user.email] - [property.user&.email]
 
     case property.class.name
     when 'Comment'

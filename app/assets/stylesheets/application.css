@@ -63,3 +63,8 @@
 .thumbnail-inner {
   padding: 20px 4px 4px;
 }
+
+.yandex-map {
+  width: 100%;
+  height: 400px;
+}

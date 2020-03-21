@@ -1,6 +1,7 @@
 <% content_for :yandex_maps do %>
-  <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU&apikey=<%= ENV['YANDEX_MAPS_API_KEY'] %>"
-    type="text/javascript"></script>
+  <%= javascript_include_tag "https://api-maps.yandex.ru/2.1/?lang=ru_RU&apikey=#{ENV['YANDEX_MAPS_API_KEY']}",
+    type: "text/javascript" %>
+  <%= javascript_include_tag "map" %>
 <% end %>
 
 <div class="event">

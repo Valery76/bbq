@@ -1,8 +1,24 @@
 <%# Паршал для вывода отдельной фотографии %>
 <div class="event-photo buffer-both">
-  <%= link_to image_tag(photo.photo.thumb.url), photo.photo.url,
-    data: { toggle: 'lightbox' } %>
+  <% del_link =
+    if current_user_can_edit?(photo)
+      link_to(fa_icon('trash'),
+              event_photo_path(photo.event, photo),
+              method: :delete,
+              data: { confirm: t('controllers.photos.destroy_confirm') })
+    end %>
+
+  <% user_partial = render(partial: 'users/user', object: photo.user) %>
+
+  <% image_title = "Добавил #{user_partial} #{del_link}" %>
+
+  <%= link_to image_tag(photo.photo.thumb.url),
+              photo.photo.url,
+              data: { toggle: 'lightbox',
+                      title: image_title,
+                      gallery: 'event-photos',
+                      type: 'image' } %>
 
   <%# Показываем не только фотку, но и юзаре, который её добавил %>
-  Добавил <%= render partial: 'users/user', object: photo.user %>
+  Добавил <%= user_partial %> <%= del_link %>
 </div>

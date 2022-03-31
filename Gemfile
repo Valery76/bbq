@@ -12,7 +12,7 @@ gem 'carrierwave'
 gem 'carrierwave-i18n'
 gem 'fog-aws'
 
-gem 'puma', '~> 3.12'
+gem 'puma', '~> 4.3'
 
 # Use SCSS for stylesheets
 gem 'sass-rails'#, '~> 5.0'
